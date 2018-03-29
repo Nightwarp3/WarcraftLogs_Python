@@ -1,1 +1,1 @@
-This is a Python Application that is currently under development. It will use the WarcraftLogs API and integrate with a MySQL database.
+This is the development portion where the code will actually be done, then the main.py script will be pushed to master in order to display in the Azure WebApp.
