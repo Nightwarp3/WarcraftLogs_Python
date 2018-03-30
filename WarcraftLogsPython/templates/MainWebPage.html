@@ -1,72 +1,48 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
     <meta charset="utf-8" />
     <title>Warcraft Logs API Requests</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='MainPage.css') }}">
 </head>
 <body bgcolor="#545B5A">
     <div class="tabbed">
-
-        <!-- Home -->
-
-        <input name="tabbed" id="home" type="radio" checked />
+        <!-- reportResults -->
+        <input name="tabbed" id="reportResults" type="radio" checked />
         <section>
             <h1>
-                <label for="home">Home</label>
+                <label for="reportResults">Report Results</label>
             </h1>
-            <div>
-                This will be the Home Page :D
+            <div class="input">
+                <br />
+                Report ID: <input id="reportID" name="ReportIDField" />
             </div>
         </section>
-
-        <!-- Report Results -->
-
-        <input name="tabbed" id="reportRequest" type="radio" />
-        <section>
-            <h1>
-                <label for="reportRequest">Report Results</label>
-            </h1>
-            <div>
-                Request ID: <input id="reportID" name="ReportIDField" />
-            </div>
-        </section>
-
-        <!-- Fight Results -->
-
+        <!-- fightResults -->
         <input name="tabbed" id="fightResults" type="radio" />
         <section>
             <h1>
                 <label for="fightResults">Fight Results</label>
             </h1>
-            <div>
-                <select class="dropdown">
-                    <option>Legion</option>
+            <div class="input">
+                <br />
+                <!-- Expansion Options -->
+                <select>
+                    <option>Mists of Pandaria</option>
                     <option>Warlords of Draenor</option>
-                    <option>Mists of Pandara</option>
+                    <option>Legion</option>
                 </select>
-                Request ID: <input id="reportID" name="ReportIDField" value="(optional)" />
+                Report ID:<input id="reportID" name="ReportIDField" />(optional)
             </div>
         </section>
-
-        <!-- Character Rankings -->
-
+        <!-- characterRankings -->
         <input name="tabbed" id="characterRankings" type="radio" />
         <section>
             <h1>
-                <label for="characterRankings">Character Rankings</label>
+                <label for="characterRankings">Report Results</label>
             </h1>
             <div class="input">
-                Character Name: <input id="charName" name="CharacterNameField" />
-                Server Name: <input id="charName" name="CharacterNameField" />
-                Region: <select class="dropdown" style="font-size: 14px;">
-                    <option>US</option>
-                    <option>EU</option>
-                    <option>KR</option>
-                    <option>TW</option>
-                    <option>CN</option>
-                </select>
+                <input id="reportID" name="ReportIDField" />
             </div>
         </section>
     </div>
