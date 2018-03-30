@@ -5,7 +5,7 @@
     <title>Warcraft Logs API Requests</title>
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='MainPage.css') }}">
 </head>
-<body>
+<body bgcolor="#545B5A">
     <div class="tabbed">
         <!-- reportResults -->
         <input name="tabbed" id="reportResults" type="radio" checked />
@@ -13,24 +13,26 @@
             <h1>
                 <label for="reportResults">Report Results</label>
             </h1>
-            <div>
-                <input id="reportID" name="ReportIDField" />
+            <div class="input">
+                <br />
+                Report ID: <input id="reportID" name="ReportIDField" />
             </div>
         </section>
         <!-- fightResults -->
         <input name="tabbed" id="fightResults" type="radio" />
         <section>
             <h1>
-                <label for="fightResults">Report Results</label>
+                <label for="fightResults">Fight Results</label>
             </h1>
-            <div>
+            <div class="input">
+                <br />
                 <!-- Expansion Options -->
                 <select>
-                    {{ for option in expac_options: }}
-                    <option value="{{ option }}">{{ option }}</option>
+                    <option>Mists of Pandaria</option>
+                    <option>Warlords of Draenor</option>
+                    <option>Legion</option>
                 </select>
-                <input id="reportID" name="ReportIDField" />
-                <input id="reportID" name="ReportIDField" />
+                Report ID:<input id="reportID" name="ReportIDField" />(optional)
             </div>
         </section>
         <!-- characterRankings -->
@@ -39,7 +41,7 @@
             <h1>
                 <label for="characterRankings">Report Results</label>
             </h1>
-            <div>
+            <div class="input">
                 <input id="reportID" name="ReportIDField" />
             </div>
         </section>
