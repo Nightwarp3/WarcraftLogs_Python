@@ -1,4 +1,4 @@
-from project import main
+from WarcraftLogsPython import main
 from flask import Flask
 
 app = Flask(__name__)
