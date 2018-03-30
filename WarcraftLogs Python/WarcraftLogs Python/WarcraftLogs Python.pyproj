@@ -37,6 +37,14 @@
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="static\MainPage.css" />
+    <Content Include="templates\MainWebPage.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="templates\" />
+    <Folder Include="C:\Users\mcampbe2\Source\Repos\WarcraftLogs_Python_DEV\WarcraftLogs Python\WarcraftLogs Python\static\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
