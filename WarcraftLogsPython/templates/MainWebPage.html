@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Warcraft Logs API Requests</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='MainPage.css') }}">
+</head>
+<body bgcolor="#545B5A">
+    <div class="tabbed">
+        <!-- reportResults -->
+        <input name="tabbed" id="reportResults" type="radio" checked />
+        <section>
+            <h1>
+                <label for="reportResults">Report Results</label>
+            </h1>
+            <div class="input">
+                <br />
+                Report ID: <input id="reportID" name="ReportIDField" />
+            </div>
+        </section>
+        <!-- fightResults -->
+        <input name="tabbed" id="fightResults" type="radio" />
+        <section>
+            <h1>
+                <label for="fightResults">Fight Results</label>
+            </h1>
+            <div class="input">
+                <br />
+                <!-- Expansion Options -->
+                <select>
+                    <option>Mists of Pandaria</option>
+                    <option>Warlords of Draenor</option>
+                    <option>Legion</option>
+                </select>
+                Report ID:<input id="reportID" name="ReportIDField" />(optional)
+            </div>
+        </section>
+        <!-- characterRankings -->
+        <input name="tabbed" id="characterRankings" type="radio" />
+        <section>
+            <h1>
+                <label for="characterRankings">Report Results</label>
+            </h1>
+            <div class="input">
+                <input id="reportID" name="ReportIDField" />
+            </div>
+        </section>
+    </div>
+</body>
+</html>
