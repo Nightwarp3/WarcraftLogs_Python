@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--<link rel=stylesheet type=text/css href="D:\home\site\wwwroot\WarcraftLogsPython\base.css"> -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='base.css') }}">
+    <meta charset="utf-8" />
+    <title>{% block pageTitle %}{% endblock %}</title>
+</head>
+<body bgcolor="#545B5A">
+    <div class="tabbed">
+        <!-- Home -->
+        <input name="tabbed" id="home" type="radio" {% block homeTab %}{% endblock %} />
+        <section>
+            <h1>
+                <label for="home">
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='Images/home-icon.png') }}" height="15" width="15" /> Home
+                    </a>
+                </label>
+            </h1>
+            <div>{% block homeContent %}{% endblock %}</div>
+        </section>
+        <!-- Report Results -->
+        <input name="tabbed" id="reportResults" type="radio" {% block reportTab %}{% endblock %} />
+        <section>
+            <h1>
+                <label for="reportResults">
+                    <a href="/report_results">
+                        <img src="{{ url_for('static', filename='Images/report-icon.png') }}" height="15" width="15" /> Report Results
+                    </a>
+                </label>
+            </h1>
+            <div>{% block reportContent %}{% endblock %}</div>
+        </section>
+        <!-- Fight Results -->
+        <input name="tabbed" id="fightResults" type="radio" {% block fightTab %}{% endblock %} />
+        <section>
+            <h1>
+                <label for="fightResults">
+                    <a href="/fight_results">
+                        <img src="{{ url_for('static', filename='Images/fight-icon.png') }}" height="15" width="15" /> Fight Results
+                    </a>
+                </label>
+            </h1>
+            <div>{% block fightContent %}{% endblock %}</div>
+        </section>
+        <!-- Character Rankings -->
+        <input name="tabbed" id="characterRankings" type="radio" {% block charTab %}{% endblock %} />
+        <section>
+            <h1>
+                <label for="characterRankings">
+                    <a href="/char_rank">
+                        <img src="{{ url_for('static', filename='Images/person-icon.png') }}" height="15" width="15" /> Character Rankings
+                    </a>
+                </label>
+            </h1>
+            <div class="input">{% block charContent %}{% endblock %}</div>
+        </section>
+    </div>
+</body>
+</html>

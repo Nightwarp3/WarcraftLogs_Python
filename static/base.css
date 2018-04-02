@@ -87,6 +87,11 @@ body {
     z-index: 2;
 }
 
+.tabbed > section > h1 > label > a{
+    color: #fff;
+    font-style: normal;
+}
+
 .tabbed > section > div > input{
     background-color: #3e3e42;
     color: #fff;

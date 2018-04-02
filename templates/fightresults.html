@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block pageTitle %}LoW - Fight Results{% endblock %}
+{% block fightTab %}checked{% endblock %}
+{% block fightContent %}
+<select class="dropdown">
+    <option>Legion</option>
+    <option>Warlords of Draenor</option>
+    <option>Mists of Pandara</option>
+</select>
+Request ID: <input id="reportID" name="ReportIDField" value="(optional)" />
+{% endblock %}
