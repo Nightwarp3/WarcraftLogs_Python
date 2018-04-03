@@ -1,4 +1,4 @@
-from WarcraftLogs_Python import la, mydb
+from WarcraftLogsPython import LogsAPIRequests as la, MySqlRequests as mydb
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def fight_results():
 
 @app.route('/char_rank')
 def char_rank():
-    return render_template('charrank.html', display="none", data=null)
+    return render_template('charrank.html', display="none")
 
 @app.route('/char_rank/', methods=['GET', 'POST'])
 def getCharRank():
@@ -29,7 +29,7 @@ def getCharRank():
     rank_json = la.getCharacterRanking(name, server, region)
 
 
-    return render_template('charrank.html', display="normal", data=parsed_rank)
+    return render_template('charrank.html', display="normal")
 
 def validate_name(name):
     test = "hello"
