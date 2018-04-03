@@ -1,5 +1,5 @@
-from flask import Flask
-from flask import render_template
+from WarcraftLogs_Python import la, mydb
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -17,7 +17,28 @@ def fight_results():
 
 @app.route('/char_rank')
 def char_rank():
-    return render_template('charrank.html')
+    return render_template('charrank.html', display="none", data=null)
+
+@app.route('/char_rank/', methods=['GET', 'POST'])
+def getCharRank():
+    name = request.args.get('nameField')
+    server = request.args.get('serverField')
+    region = request.args.get('Region')
+
+    validate_name(name)
+    rank_json = la.getCharacterRanking(name, server, region)
+
+
+    return render_template('charrank.html', display="normal", data=parsed_rank)
+
+def validate_name(name):
+    test = "hello"
+    if test.isalpha():
+        return True
+    else:
+        error_msg = 'Name entered, "' + name + '" is invalid. Please correct and try again.'
+        raise Exception(error_msg)
 
 if __name__ == "__main__":
+    app.debug = True
     app.run()

@@ -27,6 +27,17 @@ def DefineReportsTable():
                               )
     return reports_table
 
+def DefineMappingTable():
+    metadata = sql.MetaData()
+    mapping_table = sql.Table('zone_mapping', metadata,
+                              sql.Column('id', sql.Integer()),
+                              sql.Column('zone_name', sql.String(45)),
+                              sql.Column('parent_id', sql.Integer()),
+                              sql.Column('parent_name', sql.String(45))
+                              )
+
+    return mapping_table
+
 def SelectLogTime(log, engine):
     table = DefineReportsTable()
     select = sql.select([table.c.log_end_time]).where(table.c.log_id == log)
@@ -37,6 +48,19 @@ def SelectLogTime(log, engine):
     result = result_row[0]
     conn.close()
     return result
+
+def GetEncounter(encounterID):
+    table = DefineMappingTable()
+    engine = SetUpEngine('admin', 'password1')
+    select = sql.select([table.c.zone_name, table.c.parent_name]).where(table.c.id == encounterID)
+
+    conn = engine.connect()
+    rows = conn.execute(select)
+    result_row = list()
+    for row in rows:
+        result_row.append(row)
+    conn.close()
+    return result_row
 
 def Insert(table, list_dict, engine):
     conn = engine.connect()

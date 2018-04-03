@@ -27,7 +27,8 @@ def getEncounterIDs():
 
 def getCharacterParses(char_name, server_name, region):
     # Gathers the parses for the specified character
-    url = base_url + '/parses/character/' + char_name + '/' + server_name + '/' + region
+    serv_name = parseParameters(server_name)
+    url = base_url + '/parses/character/' + char_name + '/' + serv_name + '/' + region
     response = requests.post(url, params=params)
 
     return response.json()
@@ -46,10 +47,6 @@ def getUsersReports(user_name):
 
     return response.json()
 
-def parseParameters(param):
-    parsed_value = param.replace(' ', '%20')
-    return parsed_value
-
 def getFightsbyReport(report_id):
     url = base_url + '/report/fights' + report_id
     response = requests.post(url, params=params)
@@ -67,3 +64,7 @@ def getZoneData():
     response = requests.post(url, params=params)
 
     return response.json()
+
+def parseParameters(param):
+    parsed_value = param.replace(' ', '%20')
+    return parsed_value

@@ -92,10 +92,11 @@ body {
     font-style: normal;
 }
 
-.tabbed > section > div > input{
+.tabbed > section > div > form > input{
     background-color: #3e3e42;
     color: #fff;
     font-family: Cambria;
+    font-size: 14px;
     margin-right: 2em;
 }
 
