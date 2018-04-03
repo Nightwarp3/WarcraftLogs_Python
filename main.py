@@ -1,4 +1,3 @@
-from WarcraftLogsPython import LogsAPIRequests as la, MySqlRequests as mydb
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
