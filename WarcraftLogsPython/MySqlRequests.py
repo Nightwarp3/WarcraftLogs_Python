@@ -35,8 +35,18 @@ def DefineMappingTable():
                               sql.Column('parent_id', sql.Integer()),
                               sql.Column('parent_name', sql.String(45))
                               )
-
     return mapping_table
+
+def DefineCharSpecTable():
+    metadata = sql.MetaData()
+    char_spec_table = sql.Table('class_spec_mapping', metadata,
+                                sql.Column('id', sql.Integer()),
+                                sql.Column('class_name', sql.String(45)),
+                                sql.Column('spec', sql.String(45)),
+                                sql.Column('class_id', sql.Integer()),
+                                sql.Column('spec_id', sql.Integer())
+                                )
+    return char_spec_table
 
 def SelectLogTime(log, engine):
     table = DefineReportsTable()
@@ -61,6 +71,19 @@ def GetEncounter(encounterID):
         result_row.append(row)
     conn.close()
     return result_row
+
+def GetClassSpec(classid, specid):
+    table = DefineCharSpecTable()
+    engine = SetUpEngine('admin', 'password1')
+    select = sql.select([table.c.class_name, table.c.spec]).where(table.c.class_id == classid and table.c.spec_id == specid)
+
+    conn = engine.connect()
+    rows = conn.execute(select)
+    result = list()
+    for row in rows:
+        result.append(row)
+    conn.close()
+    return result
 
 def Insert(table, list_dict, engine):
     conn = engine.connect()

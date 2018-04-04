@@ -15,12 +15,11 @@
     <button id="go" name="charRankGo" type="submit">Go</button>
 </form>
 <table style="display: {{ display }}">
+    <h2 style="color: #fff; font-size: 20px; font-family: fantasy;">{{ name }}</h2>
+    {{ for fight in data: }}
     <tr>
         <td>
-            Some data will go here...
-        </td>
-        <td>
-            Some more data will go here...
+            {{ fight }}
         </td>
     </tr>
 </table>
